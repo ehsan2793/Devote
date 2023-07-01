@@ -41,7 +41,10 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            task = ""
+            hideKeyboard()
         }
+        
     }
 
     private func deleteItems(offsets: IndexSet) {
@@ -77,10 +80,11 @@ struct ContentView: View {
                         Text("save".uppercased())
                         Spacer()
                     })
+                    .disabled(isButtonDisabled)
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
-                    .background(.pink)
+                    .background(isButtonDisabled ? .gray : .pink)
                     .cornerRadius(10)
                 } //: VSTACK
                 .padding()
@@ -88,7 +92,7 @@ struct ContentView: View {
                     ForEach(items) { item in
                         NavigationLink {
                             Text("Description")
-                             //: LIST ITEM
+                            //: LIST ITEM
                         } label: {
                             VStack(alignment: .leading) {
                                 Text(item.task ?? "")
@@ -106,13 +110,8 @@ struct ContentView: View {
             .navigationTitle("Daily Task")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                    EditButton()
                 }
             } //: TOOLBAR
         } //: NAVIGATION

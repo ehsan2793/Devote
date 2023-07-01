@@ -17,6 +17,7 @@
 		7C2601BB2A50ACD800D88F16 /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2601B82A50ACD800D88F16 /* sound-ding.mp3 */; };
 		7C2601BC2A50ACD800D88F16 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2601B92A50ACD800D88F16 /* sound-rise.mp3 */; };
 		7C2601C92A50D35700D88F16 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601C82A50D35700D88F16 /* Constant.swift */; };
+		7C2601CB2A50E7C200D88F16 /* HideKeyboardExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601CA2A50E7C200D88F16 /* HideKeyboardExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7C2601B92A50ACD800D88F16 /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		7C2601C32A50AEF400D88F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7C2601C82A50D35700D88F16 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		7C2601CA2A50E7C200D88F16 /* HideKeyboardExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		7C2601BF2A50AD1000D88F16 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
+				7C2601CA2A50E7C200D88F16 /* HideKeyboardExtention.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				7C2601AE2A50A67A00D88F16 /* Persistence.swift in Sources */,
 				7C2601A72A50A67900D88F16 /* ContentView.swift in Sources */,
 				7C2601C92A50D35700D88F16 /* Constant.swift in Sources */,
+				7C2601CB2A50E7C200D88F16 /* HideKeyboardExtention.swift in Sources */,
 				7C2601B12A50A67A00D88F16 /* Devote.xcdatamodeld in Sources */,
 				7C2601A52A50A67900D88F16 /* DevoteApp.swift in Sources */,
 			);
