@@ -16,8 +16,6 @@
 		7C2601BA2A50ACD800D88F16 /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2601B72A50ACD800D88F16 /* sound-tap.mp3 */; };
 		7C2601BB2A50ACD800D88F16 /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2601B82A50ACD800D88F16 /* sound-ding.mp3 */; };
 		7C2601BC2A50ACD800D88F16 /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2601B92A50ACD800D88F16 /* sound-rise.mp3 */; };
-		7C2601C62A50CDD100D88F16 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601C42A50CDD100D88F16 /* Item+CoreDataClass.swift */; };
-		7C2601C72A50CDD100D88F16 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601C52A50CDD100D88F16 /* Item+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +30,6 @@
 		7C2601B82A50ACD800D88F16 /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 		7C2601B92A50ACD800D88F16 /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		7C2601C32A50AEF400D88F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		7C2601C42A50CDD100D88F16 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7C2601C52A50CDD100D88F16 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +46,6 @@
 		7C2601982A50A67900D88F16 = {
 			isa = PBXGroup;
 			children = (
-				7C2601C42A50CDD100D88F16 /* Item+CoreDataClass.swift */,
-				7C2601C52A50CDD100D88F16 /* Item+CoreDataProperties.swift */,
 				7C2601A32A50A67900D88F16 /* Devote */,
 				7C2601A22A50A67900D88F16 /* Products */,
 			);
@@ -211,8 +205,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C2601C72A50CDD100D88F16 /* Item+CoreDataProperties.swift in Sources */,
-				7C2601C62A50CDD100D88F16 /* Item+CoreDataClass.swift in Sources */,
 				7C2601AE2A50A67A00D88F16 /* Persistence.swift in Sources */,
 				7C2601A72A50A67900D88F16 /* ContentView.swift in Sources */,
 				7C2601B12A50A67A00D88F16 /* Devote.xcdatamodeld in Sources */,
