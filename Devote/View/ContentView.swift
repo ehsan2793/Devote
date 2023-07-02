@@ -62,7 +62,7 @@ struct ContentView: View {
     // MARK: - BODY
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 VStack {
                     VStack(spacing: 16) {
@@ -88,21 +88,46 @@ struct ContentView: View {
                         .cornerRadius(10)
                     } //: VSTACK
                     .padding()
-                    List {
-                        ForEach(items) { item in
-                            VStack(alignment: .leading) {
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                            } //: LIST ITEM
+                    ScrollView() {
+                        VStack(alignment: .leading ){
+                            ForEach(items) { item in
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(item.task ?? "")
+                                            .font(.headline)
+                                            .fontWeight(.bold)
+                                        Text("Created at \(item.timestamp!, formatter: itemFormatter)")
+                                            .font(.footnote)
+                                            .foregroundColor(.gray)
+                                   
+                                    }
+                                    Spacer()
+                                }
+                                .padding(.vertical,6)
+                                .padding(.horizontal, 10)
+
+                                Divider()
+                                    .padding(.horizontal, 50)
+                            }//: LIST ITEM
+                            .onDelete(perform: deleteItems)
                         }
-                        .onDelete(perform: deleteItems)
-                    } //: LIST
+                        .background(.white)
+                        .cornerRadius(12)
+                        .padding(.horizontal, 16)
+                        
+                    } //: SCROLL
+                    .listStyle(InsetGroupedListStyle())
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
+                    .padding(.vertical, 0)
+                    .frame(maxWidth: 640)
+                    
+   
                 } //: VSTACK
+
             } //: ZSTACK
+            .onAppear() {
+                UITableView.appearance().backgroundColor = UIColor.clear
+            }
             .navigationTitle("Daily Task")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -110,7 +135,15 @@ struct ContentView: View {
                     EditButton()
                 }
             } //: TOOLBAR
+            .background(
+                BackgroundImageView()
+            )
+            .background(
+                backgroundGradient.ignoresSafeArea(.all)
+            )
+     
         } //: NAVIGATION
+        
     }
 }
 
