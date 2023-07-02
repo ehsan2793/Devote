@@ -25,7 +25,7 @@ struct ListRowItemView: View {
         })
         .onReceive(item.objectWillChange, perform: { _ in
             if self.viewContext.hasChanges {
-                try? self.viewContext.save()
+                try? self.viewContext.save
             }
             
         })

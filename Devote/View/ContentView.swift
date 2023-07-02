@@ -102,16 +102,7 @@ struct ContentView: View {
                     ScrollView {
                         ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                             HStack {
-                                VStack(alignment: .leading) {
-                                    Text(item.task ?? "")
-                                        .font(.headline)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color.transferRepresentation)
-                                    Text("Created at \(item.timestamp!, formatter: itemFormatter)")
-                                        .font(.footnote)
-                                        .foregroundColor(.gray)
-                                }
-                                Spacer()
+                                ListRowItemView(item: item)
                                 Button(action: {
                                     deleteItems(offsets: [index])
                                 }, label: {
@@ -119,8 +110,7 @@ struct ContentView: View {
                                         .foregroundColor(.pink)
                                 })
                             }
-
-                            .padding(.vertical, 6)
+//                            .padding(.vertical, 6)
                             .padding(.horizontal, 10)
 
                             Divider()
@@ -157,11 +147,6 @@ struct ContentView: View {
             .navigationTitle("Daily Task")
             .navigationBarHidden(true)
             .navigationBarTitleDisplayMode(.large)
-            //            .toolbar {
-            //                ToolbarItem(placement: .navigationBarTrailing) {
-            //                    EditButton()
-            //                }
-            //            } //: TOOLBAR
             .background(
                 BackgroundImageView()
             )
