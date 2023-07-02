@@ -47,9 +47,27 @@ struct ContentView: View {
 
                 VStack {
                     // MARK: - HEADER
-                    
+
+
                     // MARK: - NEW TASK BUTTON
 
+                    Button(action: {
+                        showNewTaskItem = true
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
+                        Text("New Task")
+                            .font(.system(size: 24, weight: .semibold, design: .rounded))
+                    })
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 15)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [.pink, .blue]), startPoint: .leading, endPoint: .trailing)
+                            .clipShape(Capsule())
+                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
+                    )
+                    Spacer(minLength: 20)
                     // MARK: - TASKS
 
                     ScrollView {
@@ -85,6 +103,11 @@ struct ContentView: View {
                 } //: VSTACK
 
                 // MARK: - NEW TASK ITEM
+                if showNewTaskItem {
+                    NewTastItemView()
+                }
+                
+                
             } //: ZSTACK
             .onAppear {
                 UITableView.appearance().backgroundColor = UIColor.clear
