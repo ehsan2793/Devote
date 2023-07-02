@@ -126,7 +126,7 @@ struct ContentView: View {
                             Divider()
                                 .padding(.horizontal, 50)
                         } //: LIST ITEM
-//                        .onDelete(perform: deleteItems)
+                        //                        .onDelete(perform: deleteItems)
                         .background(
                             isDarkMode ? Color(UIColor.secondarySystemBackground) : Color.white
                         )
@@ -157,11 +157,11 @@ struct ContentView: View {
             .navigationTitle("Daily Task")
             .navigationBarHidden(true)
             .navigationBarTitleDisplayMode(.large)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton()
-//                }
-//            } //: TOOLBAR
+            //            .toolbar {
+            //                ToolbarItem(placement: .navigationBarTrailing) {
+            //                    EditButton()
+            //                }
+            //            } //: TOOLBAR
             .background(
                 BackgroundImageView()
             )

@@ -21,6 +21,7 @@
 		7C2601CD2A51462400D88F16 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601CC2A51462400D88F16 /* BackgroundImageView.swift */; };
 		7C2601CF2A516D4E00D88F16 /* NewTastItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601CE2A516D4E00D88F16 /* NewTastItemView.swift */; };
 		7C2601D12A51771E00D88F16 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2601D02A51771E00D88F16 /* BlankView.swift */; };
+		7C89922B2A51F99C00E3D4D6 /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89922A2A51F99C00E3D4D6 /* ListRowItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7C2601CC2A51462400D88F16 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		7C2601CE2A516D4E00D88F16 /* NewTastItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTastItemView.swift; sourceTree = "<group>"; };
 		7C2601D02A51771E00D88F16 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
+		7C89922A2A51F99C00E3D4D6 /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				7C2601CC2A51462400D88F16 /* BackgroundImageView.swift */,
 				7C2601CE2A516D4E00D88F16 /* NewTastItemView.swift */,
 				7C2601D02A51771E00D88F16 /* BlankView.swift */,
+				7C89922A2A51F99C00E3D4D6 /* ListRowItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				7C2601A72A50A67900D88F16 /* ContentView.swift in Sources */,
 				7C2601D12A51771E00D88F16 /* BlankView.swift in Sources */,
 				7C2601C92A50D35700D88F16 /* Constant.swift in Sources */,
+				7C89922B2A51F99C00E3D4D6 /* ListRowItemView.swift in Sources */,
 				7C2601CB2A50E7C200D88F16 /* HideKeyboardExtention.swift in Sources */,
 				7C2601B12A50A67A00D88F16 /* Devote.xcdatamodeld in Sources */,
 				7C2601A52A50A67900D88F16 /* DevoteApp.swift in Sources */,
