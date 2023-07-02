@@ -47,16 +47,35 @@ struct ContentView: View {
 
                 VStack {
                     // MARK: - HEADER
+
                     HStack(spacing: 10) {
                         // TITLE
+                        Text("Devote")
+                            .font(.system(.largeTitle, design: .rounded))
+                            .fontWeight(.heavy)
+                            .padding(.leading, 4)
+                        Spacer()
                         // EDIT BUTTON
+                        EditButton()
+                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            .padding(.horizontal, 16)
+                            .frame(minWidth: 70, minHeight: 24)
+                            .background(
+                                Capsule().stroke(Color.white, lineWidth: 2)
+                            )
                         // APPERANCE BUTTON
+                        Button(action: {
+                            
+                        }, label: {
+                            Image(systemName: "moon.circle")
+                                .resizable()
+                                .frame(width: 24,height: 24)
+                                .font(.system(.title, design: .rounded))
+                        })
                     } //: HSTACK
                     .padding()
                     .foregroundColor(.white)
-                    
-                    
-                    Spacer(minLength: 40)
+
                     // MARK: - NEW TASK BUTTON
 
                     Button(action: {
@@ -81,7 +100,7 @@ struct ContentView: View {
 
                     ScrollView {
 //                        VStack(alignment: .leading) {
-                        ForEach(Array(items.enumerated()),id: \.element.id ) { (index, item) in
+                        ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(item.task ?? "")
