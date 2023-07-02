@@ -21,7 +21,7 @@ struct ListRowItemView: View {
             Text(item.task ?? "")
                 .font(.system(.title2, design: .rounded))
                 .fontWeight(.heavy)
-                .foregroundColor(item.completion ? Color.pink : .gray)
+                .foregroundColor(item.completion ? Color.pink : .white)
                 .padding(.vertical, 12)
                 .animation(.default, value: item.completion)
         })

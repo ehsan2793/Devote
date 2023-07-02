@@ -106,14 +106,13 @@ struct ContentView: View {
                                 Spacer()
                                 Button(action: {
                                     if item.completion {
-                                    deleteItems(offsets: [index])
-                                }
-                                
+                                        deleteItems(offsets: [index])
+                                    }
+
                                 }, label: {
                                     Image(systemName: "trash")
                                         .foregroundColor(item.completion ? .pink : .gray)
                                 })
-                                
                             }
                             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
 
@@ -138,7 +137,9 @@ struct ContentView: View {
                 // MARK: - NEW TASK ITEM
 
                 if showNewTaskItem {
-                    BlankView()
+                    BlankView(
+                        backgroundColor: isDarkMode ? Color.black : Color.gray,
+                        backgroundOpacity: isDarkMode ? 0.3 : 0.5)
                         .onTapGesture {
                             withAnimation {
                                 showNewTaskItem = false
