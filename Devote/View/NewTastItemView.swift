@@ -12,6 +12,7 @@ struct NewTastItemView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
     @State private var task: String = ""
+    @Binding var isShowing: Bool
 
     private var isButtonDisabled: Bool {
         task.isEmpty
@@ -35,6 +36,7 @@ struct NewTastItemView: View {
             }
             task = ""
             hideKeyboard()
+            isShowing = false
         }
     }
 
@@ -58,7 +60,7 @@ struct NewTastItemView: View {
                 }, label: {
                     Spacer()
                     Text("save".uppercased())
-                        .font(.system(size: 24, weight: .bold,design: .rounded))
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
                     Spacer()
                 })
                 .disabled(isButtonDisabled)
@@ -84,7 +86,7 @@ struct NewTastItemView: View {
 
 struct NewTastItemView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTastItemView()
+        NewTastItemView(isShowing: .constant(true))
             .background(Color.gray.edgesIgnoringSafeArea(.all))
     }
 }

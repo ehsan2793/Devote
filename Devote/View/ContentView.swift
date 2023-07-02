@@ -47,8 +47,16 @@ struct ContentView: View {
 
                 VStack {
                     // MARK: - HEADER
-
-
+                    HStack(spacing: 10) {
+                        // TITLE
+                        // EDIT BUTTON
+                        // APPERANCE BUTTON
+                    } //: HSTACK
+                    .padding()
+                    .foregroundColor(.white)
+                    
+                    
+                    Spacer(minLength: 40)
                     // MARK: - NEW TASK BUTTON
 
                     Button(action: {
@@ -68,30 +76,37 @@ struct ContentView: View {
                             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 8, x: 0, y: 4)
                     )
                     Spacer(minLength: 20)
+
                     // MARK: - TASKS
 
                     ScrollView {
-                        VStack(alignment: .leading) {
-                            ForEach(items) { item in
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text(item.task ?? "")
-                                            .font(.headline)
-                                            .fontWeight(.bold)
-                                        Text("Created at \(item.timestamp!, formatter: itemFormatter)")
-                                            .font(.footnote)
-                                            .foregroundColor(.gray)
-                                    }
-                                    Spacer()
+//                        VStack(alignment: .leading) {
+                        ForEach(Array(items.enumerated()),id: \.element.id ) { (index, item) in
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.task ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                    Text("Created at \(item.timestamp!, formatter: itemFormatter)")
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
                                 }
-                                .padding(.vertical, 6)
-                                .padding(.horizontal, 10)
+                                Spacer()
+                                Button(action: {
+                                    deleteItems(offsets: [index])
+                                }, label: {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.pink)
+                                })
+                            }
 
-                                Divider()
-                                    .padding(.horizontal, 50)
-                            } //: LIST ITEM
-                            .onDelete(perform: deleteItems)
-                        }
+                            .padding(.vertical, 6)
+                            .padding(.horizontal, 10)
+
+                            Divider()
+                                .padding(.horizontal, 50)
+                        } //: LIST ITEM
+//                        .onDelete(perform: deleteItems)
                         .background(.white)
                         .cornerRadius(12)
                         .padding(.horizontal, 16)
@@ -103,28 +118,28 @@ struct ContentView: View {
                 } //: VSTACK
 
                 // MARK: - NEW TASK ITEM
+
                 if showNewTaskItem {
                     BlankView()
                         .onTapGesture {
-                            withAnimation(){
+                            withAnimation {
                                 showNewTaskItem = false
                             }
                         }
-                    NewTastItemView()
+                    NewTastItemView(isShowing: $showNewTaskItem)
                 }
-                
-                
             } //: ZSTACK
             .onAppear {
                 UITableView.appearance().backgroundColor = UIColor.clear
             }
             .navigationTitle("Daily Task")
+            .navigationBarHidden(true)
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-            } //: TOOLBAR
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    EditButton()
+//                }
+//            } //: TOOLBAR
             .background(
                 BackgroundImageView()
             )
