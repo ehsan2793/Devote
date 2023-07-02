@@ -25,8 +25,6 @@ struct ContentView: View {
 
     // MARK: - FUNCTIONS
 
-
-
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
@@ -45,10 +43,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {
+                // MARK: - MAIN VIEW
 
-                    ScrollView() {
-                        VStack(alignment: .leading ){
+                VStack {
+                    // MARK: - HEADER
+                    
+                    // MARK: - NEW TASK BUTTON
+
+                    // MARK: - TASKS
+
+                    ScrollView {
+                        VStack(alignment: .leading) {
                             ForEach(items) { item in
                                 HStack {
                                     VStack(alignment: .leading) {
@@ -58,33 +63,30 @@ struct ContentView: View {
                                         Text("Created at \(item.timestamp!, formatter: itemFormatter)")
                                             .font(.footnote)
                                             .foregroundColor(.gray)
-                                   
                                     }
                                     Spacer()
                                 }
-                                .padding(.vertical,6)
+                                .padding(.vertical, 6)
                                 .padding(.horizontal, 10)
 
                                 Divider()
                                     .padding(.horizontal, 50)
-                            }//: LIST ITEM
+                            } //: LIST ITEM
                             .onDelete(perform: deleteItems)
                         }
                         .background(.white)
                         .cornerRadius(12)
                         .padding(.horizontal, 16)
-                        
                     } //: SCROLL
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
-                    
-   
                 } //: VSTACK
 
+                // MARK: - NEW TASK ITEM
             } //: ZSTACK
-            .onAppear() {
+            .onAppear {
                 UITableView.appearance().backgroundColor = UIColor.clear
             }
             .navigationTitle("Daily Task")
@@ -100,9 +102,7 @@ struct ContentView: View {
             .background(
                 backgroundGradient.ignoresSafeArea(.all)
             )
-     
         } //: NAVIGATION
-        
     }
 }
 
