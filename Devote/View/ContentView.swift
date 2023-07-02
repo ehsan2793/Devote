@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     // MARK: - PROPERTIES
 
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var task: String = ""
     @State private var showNewTaskItem: Bool = false
 
@@ -65,11 +66,11 @@ struct ContentView: View {
                             )
                         // APPERANCE BUTTON
                         Button(action: {
-                            
+                            isDarkMode.toggle()
                         }, label: {
-                            Image(systemName: "moon.circle")
+                            Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
-                                .frame(width: 24,height: 24)
+                                .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
                         })
                     } //: HSTACK
@@ -99,13 +100,13 @@ struct ContentView: View {
                     // MARK: - TASKS
 
                     ScrollView {
-//                        VStack(alignment: .leading) {
                         ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(item.task ?? "")
                                         .font(.headline)
                                         .fontWeight(.bold)
+                                        .foregroundColor(Color.transferRepresentation)
                                     Text("Created at \(item.timestamp!, formatter: itemFormatter)")
                                         .font(.footnote)
                                         .foregroundColor(.gray)
@@ -126,7 +127,9 @@ struct ContentView: View {
                                 .padding(.horizontal, 50)
                         } //: LIST ITEM
 //                        .onDelete(perform: deleteItems)
-                        .background(.white)
+                        .background(
+                            isDarkMode ? Color(UIColor.secondarySystemBackground) : Color.white
+                        )
                         .cornerRadius(12)
                         .padding(.horizontal, 16)
                     } //: SCROLL
