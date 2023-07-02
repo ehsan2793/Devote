@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CheckBoxStyle: ToggleStyle {
-
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     func makeBody(configuration: Configuration) -> some View {
         return HStack {
             Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
-                .foregroundColor(configuration.isOn ? .pink : .blue)
+                .foregroundColor(configuration.isOn ? .pink : .gray)
                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                 .onTapGesture {
                     configuration.isOn.toggle()

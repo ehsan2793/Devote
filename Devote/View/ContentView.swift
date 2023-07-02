@@ -103,15 +103,21 @@ struct ContentView: View {
                         ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                             HStack {
                                 ListRowItemView(item: item)
+                                Spacer()
                                 Button(action: {
+                                    if item.completion {
                                     deleteItems(offsets: [index])
+                                }
+                                
                                 }, label: {
                                     Image(systemName: "trash")
-                                        .foregroundColor(.pink)
+                                        .foregroundColor(item.completion ? .pink : .gray)
                                 })
+                                
                             }
-//                            .padding(.vertical, 6)
-                            .padding(.horizontal, 10)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
+
+                            .padding(.horizontal, 20)
 
                             Divider()
                                 .padding(.horizontal, 50)
